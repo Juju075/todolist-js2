@@ -11,19 +11,22 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <main class="app">
+      <!-- Section 1 -->
       <section class="greeting">
         <h2 class="title">
           What's up,
           <input type="text" name="" id="name" placeholder="Name Here" />
         </h2>
       </section>
+      <!-- Section 2 -->
       <section class="create-todo">
         <h3>CREATE A TODO</h3>
-        <form>
+        <form id="new-todo-form">
           <h4>What's on your todo list?</h4>
           <input
             type="text"
@@ -57,10 +60,14 @@
           <input type="submit" value="Add todo" />
         </form>
       </section>
+
+      <!-- Section 3 -->
       <section class="todo-list">
+        <h3>TODO LIST</h3>
         <div class="list" id="todo-list">
-          <!-- Item 1 -->
-          <div class="toto-item">
+          <!-- Listing des Items 1,2 (afficher avec javascript)
+          
+          <div class="todo-item done">
             <label for=""
               ><input type="checkbox" /><span class="bubble business"></span
             ></label>
@@ -72,8 +79,8 @@
               ><button class="delete">Delete</button>
             </div>
           </div>
-          <!-- Item 2 -->
-          <div class="toto-item">
+ 
+          <div class="todo-item">
             <label for=""
               ><input type="checkbox" /><span class="bubble personal"></span
             ></label>
@@ -85,6 +92,7 @@
               ><button class="delete">Delete</button>
             </div>
           </div>
+          -->
         </div>
       </section>
     </main>

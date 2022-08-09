@@ -14,6 +14,7 @@
   --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
 }
 
+
 /* Resets */
 * {
   margin: 0;
@@ -42,6 +43,7 @@ section {
   margin-bottom: 2rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  border: 1px solid green;
 }
 
 h3 {
@@ -58,8 +60,7 @@ h4 {
   margin-bottom: 0.5rem;
 }
 
-
-/** */
+/** <section class="greeting"> */
 
 .greeting .title {
   display: flex;
@@ -77,6 +78,8 @@ h4 {
   font-size: 1.5rem;
   font-weight: 700;
 }
+
+/** section 2 | <section class="create-todo"> */
 
 .create-todo input[type="text"] {
   display: block;
@@ -130,6 +133,7 @@ input[type="checkbox"] {
   box-shadow: var(--personal-glow);
 }
 
+/** 27:05 */
 .bubble::after {
   content: "";
   display: block;
@@ -152,6 +156,8 @@ input:checked ~ .bubble::after {
   height: 10px;
   opacity: 1;
 }
+
+/** */
 
 .create-todo .options label div {
   color: var(--dark);
@@ -177,6 +183,8 @@ input:checked ~ .bubble::after {
 .create-todo input[type="submit"]:hover {
   opacity: 0.75;
 }
+
+/* Section 3 |  <section class="todo-list"> */
 
 .todo-list .list {
   margin: 1rem 0;
