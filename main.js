@@ -1,7 +1,7 @@
 window.addEventListener("load", (ev) => {
   //parse
   todos = JSON.parse(localStorage.getItem("todos")) || [];
-  console.log(todos); // []
+  console.log("variable todos ", todos); // []
 
   /**
    * I - Declaration conts el = document.
@@ -13,7 +13,7 @@ window.addEventListener("load", (ev) => {
 
   // I,2- Form
   const newTodoForm = document.querySelector("#new-todo-form"); // id="new-todo-form"
-  console.log(newTodoForm);
+  console.log("variable newTodoForm ", newTodoForm);
 
   // =====================================================
 
@@ -37,6 +37,8 @@ window.addEventListener("load", (ev) => {
    *
    */
 
+  console.log("jusqu'ici tout vas bien 1 ");
+
   //2 -  Get values to submit in new todo element before submission.
   newTodoForm.addEventListener("submit", (ev) => {
     ev.preventDefault();
@@ -49,8 +51,10 @@ window.addEventListener("load", (ev) => {
       done: false,
       createdAt: new Date().getTime() // numeric
     };
+    console.log("variable todo", todo);
 
     // push an Object to an Array. (Resultat [] du Listing)
+
     todos.push(todo);
 
     //Now SAVE in localStorage Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
@@ -130,9 +134,9 @@ function DisplayTodos() {
     label.appendChild(span);
     actions.appendChild(edit);
     actions.appendChild(deleteButton);
-    element.appendChild();
-    element.appendChild();
-    element.appendChild();
-    element.appendChild();
+    todoItem.appendChild(label);
+    todoItem.appendChild(content);
+    todoItem.appendChild(actions);
+    todoList.appendChild(todoItem);
   });
 }
