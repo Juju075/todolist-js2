@@ -34,11 +34,7 @@ window.addEventListener("load", (ev) => {
 
   /**
    * Form submit > save value in localStorage
-   *
    */
-
-  console.log("jusqu'ici tout vas bien 1 ");
-
   //2 -  Get values to submit in new todo element before submission.
   newTodoForm.addEventListener("submit", (ev) => {
     ev.preventDefault();
@@ -68,10 +64,7 @@ window.addEventListener("load", (ev) => {
 });
 
 function DisplayTodos() {
-  //Ciblage de l'emplacement d'affichage.
-  const todoList = document.getElementById("todo-list");
-  console.log("function DisplayTodos");
-  console.log(todoList);
+  // =====================================================
 
   //template (contenu) > Listing donc une boucle foreach du resultat
   /**
@@ -89,20 +82,26 @@ function DisplayTodos() {
           </div> 
  */
 
-  //Technique choisi creation js du bloc html et non le paste du html.
+  //Ciblage de l'emplacement d'affichage.
+  const todoList = document.getElementById("todo-list"); // ok main div de section
+  //Declaration
   todoList.innerHTML = "";
+
+  // =====================================================
 
   //snippet (fre->)
   todos.forEach((todo) => {
+    //Container Element
     const todoItem = document.createElement("div");
-    todoItem.classList.add("todo-item");
+    todoItem.classList.add("todo-item"); // + class=""
 
-    //creation <element></element>
+    /**
+     * 1- Main div SubElements creation <div>  <element></element>  </div>
+     */
     const label = document.createElement("label");
     const input = document.createElement("input");
     const span = document.createElement("span");
-    const content = document.createElement("div");
-    // reuse input for const input2 = document.createElement("input");
+    const content = document.createElement("div"); //ok
     const actions = document.createElement("div");
     const edit = document.createElement("button");
     const deleteButton = document.createElement("button");
@@ -112,6 +111,7 @@ function DisplayTodos() {
     input.checked = todo.done;
     span.classList.add("bubble");
 
+    //Css Blue or Pink radio
     if (todo.category == "personal") {
       span.classList.add("personal");
     } else {
@@ -125,18 +125,43 @@ function DisplayTodos() {
     deleteButton.classList.add("delete");
 
     //inner Text >texteici<
-    content.innerHTML = `<input type="text" value ="${todo.content}" readonly`;
+    //console.log(todo.content); // ok
+    //content.innerHTML = `INSERTION ICI`; //ok
+
+    content.innerHTML = `<input type="text" value ="${todo.content}" readonly/>`; // Attention cloture balise
+    console.log(content);
     edit.innerHTML = `Edit`;
     deleteButton.innerHTML = `Delete`;
 
+    /**
+     * 2- Subelements  <div><element>  <element></element>  </element></div>
+     */
     //element.appendChild ajoute un nœud à la fin de la liste des enfants d'un nœud parent spécifié.
     label.appendChild(input);
     label.appendChild(span);
     actions.appendChild(edit);
     actions.appendChild(deleteButton);
-    todoItem.appendChild(label);
-    todoItem.appendChild(content);
+
+    //Ajout d l'element principal <div></div>
+    todoItem.appendChild(label); //
+    todoItem.appendChild(content); // Todo title
     todoItem.appendChild(actions);
-    todoList.appendChild(todoItem);
-  });
+
+    todoList.appendChild(todoItem); // main div
+
+    //check radio
+    if (todo.done) {
+      todoItem.classList.add("done");
+    }
+
+    input.addEventListener("click", (ev) => {
+      todo.done = ev.target.checked;
+      localStorage.setItem("todos", JSON.stringify(todos));
+      if (todo.done) {
+        todoItem.classList.add("done");
+      } else {
+        todoItem.classList.remove("done");
+      }
+    });
+  }); // End Foreach
 }
